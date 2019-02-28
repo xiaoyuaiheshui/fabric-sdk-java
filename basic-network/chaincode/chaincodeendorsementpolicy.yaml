@@ -1,0 +1,14 @@
+#
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+---
+# A Shotgun policy xx
+identities:  # list roles to be used in the policy
+    admin1: {"role": {"name": "admin", "mspId": "Org1MSP"}} # admin role.
+
+policy: # the policy  .. could have been flat but show grouping.
+    1-of: # signed by one of these groups  can be <n>-of  where <n> is any digit 2-of, 3-of etc..
+      - 1-of:
+        - signed-by: "admin1"
